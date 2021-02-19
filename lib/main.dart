@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kalkulator/provider/function.dart';
-import 'package:kalkulator/screen/history.dart';
-import 'package:kalkulator/screen/profile.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -45,46 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 1,
               child: Column(
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Consumer<Kalkulator>(
-                          builder: (context, value, _) => IconButton(
-                            icon: Icon(Icons.history, size: 35),
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                PageRouteBuilder(
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
-                                      ChangeNotifierProvider<Kalkulator>.value(
-                                          value: Kalkulator(),
-                                          child: HistoryScreen(
-                                            list: value.hasilPrima,
-                                          )),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.person,
-                            size: 35,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Profile(),
-                              ),
-                            );
-                          },
-                        )
-                      ],
-                    ),
-                  ),
                   Container(
                     padding: EdgeInsets.all(20),
                     alignment: Alignment.centerRight,
